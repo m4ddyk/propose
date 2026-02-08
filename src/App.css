@@ -1,0 +1,170 @@
+/* App-specific styles */
+
+/* Ensure smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Section base styles */
+section {
+  position: relative;
+}
+
+/* Heart hover effects */
+.heart-item,
+.lock-heart,
+.parallax-heart {
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+.heart-item:hover,
+.lock-heart:hover,
+.parallax-heart:hover {
+  transform: scale(1.08);
+}
+
+/* Button hover states */
+button {
+  transition: all 0.3s ease;
+}
+
+/* Polaroid hover effect */
+.shadow-frame {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.shadow-frame:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Card hover effect */
+.shadow-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.shadow-card:hover {
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.16);
+}
+
+/* Photo frame hover */
+.shadow-frame-lg {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.shadow-frame-lg:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 28px 65px rgba(0, 0, 0, 0.22);
+}
+
+/* Text selection */
+::selection {
+  background: #E11D48;
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .heart-item svg,
+  .lock-heart svg,
+  .parallax-heart svg {
+    transform: scale(0.75);
+  }
+  
+  .sparkle-item svg,
+  .parallax-sparkle svg {
+    transform: scale(0.85);
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .animate-float,
+  .animate-rotate-slow,
+  .animate-pulse-soft {
+    animation: none;
+  }
+}
+
+/* Focus states for accessibility */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #E11D48;
+  outline-offset: 2px;
+}
+
+/* Loading state */
+.loading {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.loaded {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Parallax layer optimization */
+.parallax-heart,
+.parallax-sparkle {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Smooth image loading */
+img {
+  transition: opacity 0.3s ease;
+}
+
+img[src=""] {
+  opacity: 0;
+}
+
+/* Enhanced sparkle animation */
+@keyframes sparkle-twinkle {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+.sparkle-twinkle {
+  animation: sparkle-twinkle 2s ease-in-out infinite;
+}
+
+/* Heart beat animation for special moments */
+@keyframes heart-beat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.15);
+  }
+}
+
+.heart-beat {
+  animation: heart-beat 1s ease-in-out;
+}
